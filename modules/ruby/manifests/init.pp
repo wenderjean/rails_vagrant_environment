@@ -1,5 +1,5 @@
-class ruby {
-  require environment
+ class ruby {
+  include environment
 
   package { 'curl':
     ensure => installed
@@ -11,27 +11,8 @@ class ruby {
   }
 
   exec { 'get_rvm':
-    command  => '\curl -sSL https://get.rvm.io | bash -s stable --ruby',
-    require => Exec['get_public_key']
+    command => 'curl -sSL https://get.rvm.io | bash -s stable --ruby',
+    timeout => 0,
+    require => [Package['curl'], Exec['get_public_key']]
   }
-
-  #  package { "python-software-properties":
-  #  ensure => installed
-  #}
-
-  #exec { "Adding ruby repository":
-  #  command => "apt-add-repository ppa:brightbox/ruby-ng",
-  #  path    => '/usr/bin/',
-  #  require => Package['python-software-properties']
-  #}
-
-  #package { "ruby2.1":
-  #  ensure  => installed,
-  #  require => Exec['Adding ruby repository']
-  #}
-
-  #package { "ruby2.1-dev":
-  #  ensure  => installed,
-  #  require => Package['ruby2.1']
-  #}
 }

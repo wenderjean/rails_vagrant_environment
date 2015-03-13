@@ -1,14 +1,12 @@
 class rails {
   require ruby
 
-  package { "nodejs":
-    ensure   => installed
+  exec { "rails":
+    command => '/usr/bin/gem install rails -v 4.2.0'
   }
 
   #exec { "/usr/bin/gem install rails":
-  # timeout => 0,
-  #  logoutput => 'on_failure',
-  #  user => 'root'
+  #  timeout => 0,
   #}
 
   #package { "rails":

@@ -1,16 +1,14 @@
 class rails {
   require ruby
 
-  exec { "rails":
-    command => '/usr/bin/gem install rails -v 4.2.0'
+  $dependencies = ['git', 'rubygems']
+
+  package { $dependencies:
+    ensure   => 'installed'
   }
 
-  #exec { "/usr/bin/gem install rails":
-  #  timeout => 0,
-  #}
-
-  #package { "rails":
-  #  ensure   => installed,
-  #  provider => 'gem'
-  #}
+  exec { 'obtain_app':
+    command => 'git clone https://github.com/wenderjean/Angular_Rails /home/vagrant/app',
+    require => Package['git']
+  }
 }

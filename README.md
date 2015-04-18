@@ -1,6 +1,6 @@
 ## Ruby Vagrant Environment
 
-Creates an environment available by Vagrant and provisioned by Puppet to Rails applications.
+Create an environment available by Vagrant and provisioned by Puppet to Rails applications.
 These features will be installed:
 
 - Curl
@@ -10,11 +10,6 @@ These features will be installed:
 - Nodejs
 - RubyGems
 
-## Running
-
-``vagrant up``<br/>
-``vagrant ssh server``<br/>
-
 ## Dependencies
 
 Depends of a Vagrant plugin called "librarian-puppet".
@@ -22,3 +17,8 @@ Depends of a Vagrant plugin called "librarian-puppet".
 To install use:
 
 ``vagrant plugin install vagrant-librarian-puppet``
+
+## Running
+
+``vagrant up``<br/>
+``vagrant ssh server``<br/>
